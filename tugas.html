@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingkuangan yang baik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url(hijau.jpg);
+            color: #333;
+        }
+        header {
+            background-color: #005618;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            margin-top: 0;
+        }
+        .button {
+            background-color: #005618;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #005618;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        #back {
+            background-color: #005618;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 20px;
+            color: #ddd;
+        }
+        #back:hover{
+            background-color: #02962c;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Lakukan langkah kecil <span style="color: #008915; text-shadow: 2px 2px 2px#000000;">untuk dunia yang lebih baik</span></h1>
+    <p>Menanam satu pohon sama dengan melestarikan lingkungan</p>
+</header>
+
+<div class="container">
+    <!-- Bagian: Panduan Daur Ulang -->
+    <div class="card">
+        <h3>Panduan Daur Ulang</h3>
+        <p>Tahukah Anda? Daur ulang satu kaleng aluminium menghemat cukup energi untuk menonton TV selama 3 jam. Berikut adalah beberapa tips untuk mendaur ulang dengan efektif:</p>
+        <ul>
+            <li>Pisahkan sampah Anda menjadi tempat daur ulang dan non-daur ulang.</li>
+            <li>Cuci wadah sebelum didaur ulang.</li>
+            <li>Hindari mendaur ulang bahan berminyak atau basah.</li>
+        </ul>
+    </div>
+
+    <!-- Bagian: Pemindai Dampak Produk (Mockup) -->
+    <div class="card">
+        <h3>Pemindai Dampak Produk</h3>
+        <p>Masukkan nama produk untuk mempelajari dampak lingkungannya:</p>
+        <input type="text" id="productInput" placeholder="misalnya, Botol Plastik">
+        <button class="button" onclick="checkImpact()">Cek Dampak</button>
+        <p id="impactResult" class="result"></p>
+    </div>
+
+    <!-- Bagian: Kalkulator Jejak Karbon -->
+    <div class="card">
+        <h3>Kalkulator Jejak Karbon</h3>
+        <p>Kalkulasi emisi CO2 harian Anda berdasarkan aktivitas:</p>
+        <label for="miles">Jarak Tempuh (per hari):</label>
+        <input type="number" id="miles" placeholder="misalnya, 20">
+        <label for="electricity">Listrik Digunakan (kWh per hari):</label>
+        <input type="number" id="electricity" placeholder="misalnya, 10">
+        <button class="button" onclick="calculateFootprint()">Kalkulasi</button>
+        <p id="footprintResult" class="result"></p>
+        <a href="index.html" id="back">Back</a>
+    </div>
+</div>
+
+<script>
+    // Fungsi Pemindai Dampak Produk
+    function checkImpact() {
+        const product = document.getElementById('productInput').value.toLowerCase();
+        const impactData = {
+            "botol plastik": "Dampak lingkungan tinggi karena bahan non-biodegradable.",
+            "kertas": "Dampak sedang. Pertimbangkan untuk mendaur ulang untuk mengurangi limbah.",
+            "gelas": "Dampak rendah jika didaur ulang dengan benar."
+        };
+        
+        const result = impactData[product] || "Data tidak tersedia untuk produk ini.";
+        document.getElementById('impactResult').innerText = result;
+    }
+
+    // Fungsi Kalkulator Jejak Karbon
+    function calculateFootprint() {
+        const miles = parseFloat(document.getElementById('miles').value) || 0;
+        const electricity = parseFloat(document.getElementById('electricity').value) || 0;
+
+        const co2FromMiles = miles * 0.411; // Emisi CO2 rata-rata per mil dalam kg
+        const co2FromElectricity = electricity * 0.92; // Emisi CO2 rata-rata per kWh dalam kg
+
+        const totalCO2 = (co2FromMiles + co2FromElectricity).toFixed(2);
+        document.getElementById('footprintResult').innerText = `Emisi CO2 harian Anda: ${totalCO2} kg.`;
+    }
+</script>
+
+</body>
+</html>
