@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar .menu li {
+            margin: 0 10px;
+        }
+
+        .navbar .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .menu a:hover {
+            color: #00bcd4;
+        }
+
+        .content {
+            padding: 20px;
+            height: 2000px; /* Simulate a long page */
+        }
+        .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #4CAF50;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #000000;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0077ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .card button:hover {
+      background-color: #00ddff;
+    }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="L_E_Cologie-removebg-preview.png" alt="Logo">
+            <span>Peduli lingkungan</span>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: msFilter"><path d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z"></path></svg></a></li>
+        </ul>
+    </header>
+    
+    <div class="container">
+        <header>
+          <input type="text" id="search" placeholder="Cari produk..." oninput="filterCards()">
+        </header>
+        <div class="card-container" id="card-container">
+          <div class="card" data-name="Sepatu">
+            <img src="Gambar Peduli Terhadap Alam Dan Lingkungan _ Elemen Grafis PSD Unduhan Gratis - Pikbest.jpg" alt="Sepatu">
+            <h3>Sepatu</h3>
+            <p>Harga: Rp 300.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Tas">
+            <img src="Ilustrasi Bumi Hijau Yang Sehat Di Tangan Vektor, Di Telapak Tangan Anda, Bumi, Hijau PNG dan Vektor dengan Background Transparan untuk Unduh Gratis.jpg" alt="Tas">
+            <h3>Tas</h3>
+            <p>Harga: Rp 200.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Baju">
+            <img src="https://via.placeholder.com/150" alt="Baju">
+            <h3>Baju</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="Jam Tangan">
+            <img src="https://via.placeholder.com/150" alt="Jam Tangan">
+            <h3>Jam Tangan</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+        </div>
+      </div>
+      <script>
+        function filterCards() {
+          const searchInput = document.getElementById('search').value.toLowerCase();
+          const cards = document.querySelectorAll('.card');
+    
+          cards.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            if (name.includes(searchInput)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+    
+        function buyProduct(productName) {
+          alert(`Anda memilih untuk membeli: ${productName}`);
+        }
+      </script>
+</body>
+</html>
