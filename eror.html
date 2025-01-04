@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error and Loading Rooms</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #00431c, #66ff8a);
+            color: #000000;
+        }
+
+        .room-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .sub-message {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        .error-room {
+            display: none;
+        }
+
+        .loading-room {
+            display: none;
+        }
+
+        /* Specific styles for error */
+        .error-room.active {
+            display: block;
+        }
+
+        .error-room .message {
+            color: #ff1900;
+        }
+
+        /* Specific styles for loading */
+        .loading-room.active {
+            display: block;
+        }
+
+        .loading-room .message {
+            color: #000000;
+        }
+
+        .spinner {
+            border: 4px solid #ffffff;
+            border-top: 5px solid #003a0f;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        #errorRoom a{
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            padding: 2px;
+        }
+        #errorRoom a:hover{
+            background-color: #ff4949;
+        }
+    </style>
+</head>
+<body>
+    <div class="room-container">
+        <!-- Error Room -->
+        <div class="error-room active" id="errorRoom">
+            <img src="L_E_Cologie-removebg-preview.png" alt="Logo" class="logo">
+            <div class="message">Oops! Something went wrong.</div>
+            <div class="sub-message">Please try again later or contact support.</div>
+            <p>u want back? Click  <a href="index.html">Back</p></a>
+        </div>
+
+        <!-- Loading Room -->
+        <div class="loading-room" id="loadingRoom">
+            <img src="L_E_Cologie-removebg-preview.png" alt="Logo" class="logo">
+            <div class="spinner"></div>
+            <div class="message">Loading...</div>
+            <div class="sub-message">Please wait a moment.</div>
+        </div>
+    </div>
+
+    <script>
+        // Example: Toggle between error and loading rooms
+        const errorRoom = document.getElementById('errorRoom');
+        const loadingRoom = document.getElementById('loadingRoom');
+
+
+        function showErrorRoom() {
+            errorRoom.classList.add('active');
+            loadingRoom.classList.remove('active');
+        }
+
+        function showLoadingRoom() {
+            loadingRoom.classList.add('active');
+            errorRoom.classList.remove('active');
+        }
+
+        // Simulate loading and error toggle
+        setTimeout(showLoadingRoom, 2000); // Show loading room after 2 seconds
+        setTimeout(showErrorRoom, 5000);  // Show error room after 5 seconds
+    </script>
+</body>
+</html>
