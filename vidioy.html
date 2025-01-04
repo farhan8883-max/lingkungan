@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar</title>
+    <style>
+        /* Reset default margin and padding */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            width: 80%;
+            max-width: 640px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+        }
+
+        .card h1 {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            color: #000000;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar .menu li {
+            margin: 0 10px;
+        }
+
+        .navbar .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .content {
+            padding: 20px;
+            height: 2000px; /* Simulate a long page */
+        }
+        .navbar1 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00340200;
+    color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10%;
+}
+
+.navbar1 ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar1 ul li {
+    display: inline;
+}
+
+.navbar1 ul li a {
+  width: 50px; 
+  height: 50px; 
+  background-color: #002900; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 16px; 
+  text-align: center; 
+}
+
+.navbar1 ul li a:hover {
+    background-color: #006f09;
+    transform: translateY(-5px);
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="L_E_Cologie-removebg-preview.png" alt="Logo">
+            <span>Peduli lingkungan</span>
+        </div>
+        <ul class="menu">
+            <li><a href="menu.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: msFilter"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></svg></a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for videos...">
+        </div>
+        <div class="gallery" id="videoGallery">
+            <div class="card" data-title="Belajar menanam pohon mangga">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3F8FIr5TD6U?si=V-Hik88Bc129Wf9Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Belajar menanam pohon mangga</div>
+            </div>
+            <div class="card" data-title="Cara Mudah Menanam Durian Agar Cepat Berubah Uuntuk Pemula">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9m6vLOSfdZY?si=20CuU6AgDGW58GXO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Cara Mudah Menanam Durian Agar Cepat Berubah Uuntuk Pemula</div>
+            </div>
+            <div class="card" data-title="Pilah Sampah dari Rumah Yuk!">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/tVuNnac7m0o?si=8YANzBYlibmtfAVu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Pilah Sampah dari Rumah Yuk!</div>
+            </div>
+            <div class="card" data-title="Seberapa Banyak Sampah Plastik di Dunia?">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/pnuiEGuThsI?si=dnc9HIV1mPnKHELC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Seberapa Banyak Sampah Plastik di Dunia?</div>
+            </div>
+            <div class="card" data-title="Sampah Sandi (Animasi, 2019)">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/snRhl3ING0Y?si=VDz0enAa0NSkQXMd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Sampah Sandi (Animasi, 2019)</div>
+            </div>
+            <div class="card" data-title="Edukasi Pemilahan Sampah Organik dan AnOrganik by RSA UGM">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/nrANKUUHBf0?si=hAyb2KWlTu6wtkfS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Edukasi Pemilahan Sampah Organik dan AnOrganik by RSA UGM</div>
+            </div>
+            <div class="card" data-title="Jenis jenis Plastik yang wajib kamu ketahui!!">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0CSMGhOQAMA?si=AopaMDDEjBbJ2fHZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Jenis jenis Plastik yang wajib kamu ketahui!!</div>
+            </div>
+            <div class="card" data-title="IDE KREATIF DARI PLASTIK KRESEK | KERAJINAN TANGAN DARI PLASTIK BEKAS">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mAXnfxyxoyI?si=Cwmae2yLy-oeC93M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">IDE KREATIF DARI PLASTIK KRESEK | KERAJINAN TANGAN DARI PLASTIK BEKAS</div>
+            </div>
+            <div class="card" data-title="CARA MEMILAH SAMPAH ORGANIK DAN ANORGANIK">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YRFdja0AAVE?si=-46dPFV9aIUUEP0C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">CARA MEMILAH SAMPAH ORGANIK DAN ANORGANIK</div>
+            </div>
+            <div class="card" data-title="CARA MEMILAH SAMPAH ORGANIK DAN ANORGANIK">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vLh73foeoPw?si=Ufb6mHMeNMgfZmg1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">CONTOH PEDULI LINGKUNGAN</div>
+            </div>
+            <div class="card" data-title="Pengelolaan Sampah : Reduce, Reuse, Recycle">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4UelvJjrdGE?si=EuW_RWDxxTG9Hd2Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Pengelolaan Sampah : Reduce, Reuse, Recycle</div>
+            </div>
+            <div class="card" data-title="Sampah Organik dan Sampah Anorganik Bedanya Apa Sih?">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/YB1z_9c6tr8?si=exLPYxWBE_lB1RVe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Sampah Organik dan Sampah Anorganik Bedanya Apa Sih?</div>
+            </div>
+            <div class="card" data-title="CONTOH PEDULI LINGKUNGAN">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/3F8FIr5TD6U?si=V-Hik88Bc129Wf9Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Apa Jadinya Jika Tidak Ada Hutan di Dunia?</div>
+            </div>
+            <div class="card" data-title="Satu Masalah Lingkungan yang Jarang Dibahas">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jKtbnLoYJe8?si=4pdgv5fO5XLdTFU2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Satu Masalah Lingkungan yang Jarang Dibahas</div>
+            </div>
+            <div class="card" data-title="Video Kreatif - Peduli Sampah">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/As67nnwVnIU?si=yWIy8FzTxWLCEBGC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="title">Video Kreatif - Peduli Sampah</div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar1">
+        <ul>
+          <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: msFilter"><path d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z"></path></svg></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const videos = document.querySelectorAll('.card');
+
+            videos.forEach(video => {
+                const title = video.getAttribute('data-title').toLowerCase();
+                if (title.includes(query)) {
+                    video.style.display = '';
+                } else {
+                    video.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
