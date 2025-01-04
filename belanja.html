@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Navbar</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .menu {
+            display: flex;
+            list-style-type: none;
+        }
+
+        .navbar .menu li {
+            margin: 0 10px;
+        }
+
+        .navbar .menu a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .menu a:hover {
+            color: #00bcd4;
+        }
+
+        .content {
+            padding: 20px;
+            height: 2000px; /* Simulate a long page */
+        }
+        .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #4CAF50;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card h3 {
+      margin: 15px 0 5px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #000000;
+    }
+    .card button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0077ff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .card button:hover {
+      background-color: #00ddff;
+    }
+    .navbar1 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00340200;
+    color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 10%;
+}
+
+.navbar1 ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar1 ul li {
+    display: inline;
+}
+
+.navbar1 ul li a {
+  width: 50px; 
+  height: 50px; 
+  background-color: #002900; 
+  border-radius: 50%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 16px; 
+  text-align: center; 
+}
+
+.navbar1 ul li a:hover {
+    background-color: #006f09;
+    transform: translateY(-5px);
+}
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="L_E_Cologie-removebg-preview.png" alt="Logo">
+            <span>Peduli lingkungan</span>
+        </div>
+        <ul class="menu">
+          <li><a href="menu.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: msFilter"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg></svg></a></li>
+        </ul>
+    </header>
+    
+    <div class="container">
+        <header>
+          <input type="text" id="search" placeholder="Cari produk..." oninput="filterCards()">
+        </header>
+        <div class="card-container" id="card-container">
+          <div class="card" data-name="Pohon Tembakau">
+            <img src="/be/Pohon Tembakau.jpg" alt="Pohon Tembakau">
+            <h3>Pohon Tembakau</h3>
+            <p>Harga: Rp 300.000</p>
+            <button onclick="buyProduct('Pohon Tembakau')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Alpukat">
+            <img src="/be/Bibit Alpukat Mentega Di Malang, Bibit Alpukat Mentega, Jual Bibit Alpukat Mentega, Jual Bibit Alpukat Mentega Miki Depok, Bibit Buah Alpukat Mentega, Jual Bibit Alpukat Mentega Depok, Bibit Pohon Alpukat Mentega, Jua.jpg" alt="Bibit Alpukat">
+            <h3>Bibit Alpukat</h3>
+            <p>Harga: Rp 200.000</p>
+            <button onclick="buyProduct('Bibit Alpukat')">Beli</button>
+          </div>
+          <div class="card" data-name="Pohon Pucuk Merah">
+            <img src="/be/( BISA BAYAR DI TEMPAT ) pohon pucuk merah.jpg" alt="Pohon Pucuk Merah">
+            <h3>Pohon Pucuk Merah</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Pohon Pucuk Merah')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Gaharu">
+            <img src="/be/jual bibit gaharu.jpg" alt="Bibit Gaharu">
+            <h3>Bibit Gaharu</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Bibit Gaharu')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Pir Asia">
+            <img src="/be/Jual Bibit Pir Asia – Jenis Pir Dataran Rendah Dengan Rasa Manis.jpg" alt="Bibit Pir Asia">
+            <h3>Bibit Pir Asia</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Bibit Pir Asia')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit kelapa">
+            <img src="/be/ini adalah bibit kelapa.jpg" alt="Bibit kelapa">
+            <h3>Bibit kelapa</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Bibit kelapa')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Kelengkeng">
+            <img src="/be/ONGKIR MURAH! WA _ 0823-2711-3939 Bibit Kelengkeng Itoh Prambanan.jpg" alt="Bibit Kelengkeng">
+            <h3>Bibit Kelengkeng</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Bibit Kelengkeng')">Beli</button>
+          </div>
+          <!--  -->
+          <div class="card" data-name="Bibit Anggur">
+            <img src="/be/download (1).jpg" alt="Bibit Anggur">
+            <h3>Bibit Anggur</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Bibit Anggur')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Durian">
+            <img src="/be/Bibit Durian kaki 3 wa 085877189866.jpg" alt="Bibit Durian">
+            <h3>Bibit Durian</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Bibit Durian')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit cabe Keriting">
+            <img src="be/Jual Bibit Cabe Keriting _ Benih Cabai Keriting - BibitBunga.jpg" alt="Bibit cabe Keriting">
+            <h3>Bibit cabe Keriting</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Bibit cabe Keriting')">Beli</button>
+          </div>
+          <div class="card" data-name="Garden and Outdoor">
+            <img src="be/Amazon_com_ Garden and Outdoor _ Garden Tools.jpg" alt="Garden and Outdoor">
+            <h3>Garden and Outdoor</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Garden and Outdoor')">Beli</button>
+          </div>
+          <div class="card" data-name="Pupuk Kompos auta organik">
+            <img src="be/Menjual Pupuk Kompos atau Pupuk Organik.jpg" alt="Pupuk Kompos auta organik">
+            <h3>Pupuk Kompos auta organik</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Pupuk Kompos auta organik')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit Belimbing">
+            <img src="be/Spesialist Tanaman Buah on Instagram_ “Selamat….jpg" alt="Bibit Belimbing">
+            <h3>Bibit Belimbing</h3>
+            <p>Harga: Rp 150.000</p>
+            <button onclick="buyProduct('Jam Tangan')">Beli</button>
+          </div>
+          <div class="card" data-name="pohon rosemary besar malang">
+            <img src="be/SPECIAL!!, 081358123335, Jual pohon rosemary besar malang.jpg" alt="pohon rosemary besar malang">
+            <h3>pohon rosemary besar malang</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('pohon rosemary besar malang')">Beli</button>
+          </div>
+          <div class="card" data-name="Bibit mangga">
+            <img src="be/mangga #mango.jpg" alt="Bibit mangga">
+            <h3>Bibit mangga</h3>
+            <p>Harga: Rp 500.000</p>
+            <button onclick="buyProduct('Bibit mangga')">Beli</button>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar1">
+      <ul>
+        <li><a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);transform: msFilter"><path d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z"></path></svg></a></li>
+      </ul>
+    </nav>
+      <script>
+        function filterCards() {
+          const searchInput = document.getElementById('search').value.toLowerCase();
+          const cards = document.querySelectorAll('.card');
+    
+          cards.forEach(card => {
+            const name = card.getAttribute('data-name').toLowerCase();
+            if (name.includes(searchInput)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+    
+        function buyProduct(productName) {
+          alert(`Anda memilih untuk membeli: ${productName}`);
+        }
+      </script>
+</body>
+</html>
